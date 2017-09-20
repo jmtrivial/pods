@@ -975,6 +975,7 @@ namespace Pods_Unit_Tests;
 			$debug_related = count( $wpdb->get_results( $wpdb->prepare( "SELECT * FROM `{$wpdb->prefix}podsrel` WHERE `item_id` = %d AND `pod_id` = %d AND `field_id` = %d", $check_value, $pod[ 'id' ], $field[ 'id' ] ) ) ) . ' related items';
 
 			if ( $deep ) {
+				var_dump( compact( 'podsrel_item_id', 'podsrel_pod_id', 'podsrel_field_id' ) );
 				$debug_related .= ' | ' . count( $wpdb->get_results( $wpdb->prepare( "SELECT * FROM `{$wpdb->prefix}podsrel` WHERE `item_id` = %d AND `pod_id` = %d AND `field_id` = %d", $podsrel_item_id, $podsrel_pod_id, $podsrel_field_id ) ) ) . ' deep related items';
 			}
 
