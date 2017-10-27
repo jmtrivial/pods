@@ -1482,6 +1482,11 @@ class Pods implements Iterator {
 
 											$params->raw_display = true;
 										}
+										elseif ( false !== strpos( $full_field, '_title' ) && ( in_array( $table[ 'type' ], array( 'attachment', 'media' ) ) || in_array( $last_type, PodsForm::file_field_types() ) ) ) {
+											$value[] = get_the_title(pods_image_id_from_field($item_id));
+
+											$params->raw_display = true;
+										}
 										elseif ( in_array( $field, array( '_link', 'detail_url' ) ) || in_array( $field, array( 'permalink', 'the_permalink' ) ) ) {
 											if ( 'pod' == $object_type ) {
 												if ( is_object( $related_obj ) ) {

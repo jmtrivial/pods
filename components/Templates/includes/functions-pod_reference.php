@@ -55,6 +55,7 @@ function pq_recurse_pod_fields( $pod_name, $prefix = '', &$pods_visited = array(
 		if ( 'file' === $field['type'] && 'attachment' === $field['options']['file_uploader'] ) {
 			$fields[] = $prefix . $name . '._src';
 			$fields[] = $prefix . $name . '._img';
+			$fields[] = $prefix . $name . '._title';
 
 			$sizes = get_intermediate_image_sizes();
 			foreach ( $sizes as $size ) {
